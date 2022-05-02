@@ -1,0 +1,101 @@
+$CommonColor:#1a73e8;
+
+.Main-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 40px 36px;
+
+    width: 50%;
+    min-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+span {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+header {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.Form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-div {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 0px;
+}
+
+mat-form-field {
+    width: 50%;
+    margin-right: 10px;
+}
+
+.email {
+    width: 99%;
+}
+
+.but-div {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row-reverse;
+    margin-left: 0px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.pass-hint {
+    margin-left: 20px;
+    margin-top: 0px;
+    width: 83%;
+}
+
+.Signin {
+    font-family: "Google Sans", Arial, sans-serif;
+    font-size: 14px;
+    color: $CommonColor;
+    font-weight: bolder;
+}
+
+.next {
+    background-color: $CommonColor;
+    color: white;
+    width: 20%;
+}
+
+mat-hint {
+    font-size: 14px;
+}
+
+.email-a {
+    @extend .Signin
+}
+
+.temp-para{
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+}
+.img-div{
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+
