@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ForgotComponent } from './Components/forgot/forgot.component';
+import { ResetComponent } from './Components/reset/reset.component';
 
 // import {MatSidenavModule} from '@angular/material/sidenav';
 // import { MatFormFieldModule } from "@angular/material/form-field";
@@ -18,7 +20,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   declarations: [
     AppComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,
