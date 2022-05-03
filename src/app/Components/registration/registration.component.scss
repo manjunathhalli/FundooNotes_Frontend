@@ -59,6 +59,24 @@ mat-form-field {
     margin-bottom: 25px;
 }
 
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: $CommonColor !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-accent .mat-pseudo-checkbox-checked,
+.mat-accent .mat-pseudo-checkbox-indeterminate,
+.mat-pseudo-checkbox-checked,
+.mat-pseudo-checkbox-indeterminate {
+    background-color: $CommonColor !important;
+
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: $CommonColor !important;
+}
+
 .pass-hint {
     margin-left: 20px;
     margin-top: 0px;
@@ -86,16 +104,46 @@ mat-hint {
     @extend .Signin
 }
 
-.temp-para{
+.temp-para {
     display: flex;
     justify-content: center;
     font-size: 15px;
 }
-.img-div{
+
+.img-div {
     flex-direction: column;
     flex: 1;
     align-items: center;
     justify-content: center;
+    margin-left: 20px;
 }
 
 
+@media screen and (max-width:900px) {
+
+    .img-div{
+        display: none;
+    }
+    .Main-Container{
+        justify-content: unset;
+        min-width: 450px;   
+    }
+}
+@media screen and (max-width:600px) {
+    .Main-Container{
+            padding: 0px;
+    }
+    .input-div{
+        flex-wrap: wrap;
+    }
+    mat-form-field{
+         width: 100%;
+    }
+    mat-card {
+        transition: none !important;
+        box-shadow: none !important;
+    }
+    .but-div{
+        margin-right: 5px;
+    }
+}
