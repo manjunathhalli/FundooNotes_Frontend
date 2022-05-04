@@ -9,13 +9,16 @@ import { LoginComponent } from './Components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ForgotComponent } from './Components/forgot/forgot.component';
 import { ResetComponent } from './Components/reset/reset.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
-// import {MatSidenavModule} from '@angular/material/sidenav';
-// import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,11 +35,14 @@ import { ResetComponent } from './Components/reset/reset.component';
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    // MatSidenavModule,
-    // MatFormFieldModule,
-
+    FormsModule,
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatIconModule,
 
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
