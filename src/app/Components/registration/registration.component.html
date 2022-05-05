@@ -16,23 +16,23 @@
             <div class="input-div">
                 <mat-form-field appearance="outline">
                     <mat-label>First name</mat-label>
-                    <input matInput type="text" formControlName='firstName'>
-                    <mat-error *ngIf="RegisterForm.get('firstName')?.errors?.['required']">First Name is required
+                    <input matInput type="text" formControlName='first_name'>
+                    <mat-error *ngIf="RegisterForm.get('first_name')?.errors?.['required']">First Name is required
                     </mat-error>
-                    <mat-error *ngIf="RegisterForm.get('firstName')?.errors?.['pattern']">Name starts with capital
+                    <mat-error *ngIf="RegisterForm.get('first_name')?.errors?.['pattern']">Name starts with capital
                         letter</mat-error>
-                    <mat-error *ngIf="RegisterForm.get('firstName')?.errors?.['minlength']">Name is of minimum 3
+                    <mat-error *ngIf="RegisterForm.get('first_name')?.errors?.['minlength']">Name is of minimum 3
                         characters</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Last name</mat-label>
-                    <input matInput type="text" formControlName='lastName'>
-                    <mat-error *ngIf="RegisterForm.get('lastName')?.errors?.['required']">Last Name is required
+                    <input matInput type="text" formControlName='last_name'>
+                    <mat-error *ngIf="RegisterForm.get('last_name')?.errors?.['required']">Last Name is required
                     </mat-error>
-                    <mat-error *ngIf="RegisterForm.get('lastName')?.errors?.['pattern']">Name starts with capital letter
+                    <mat-error *ngIf="RegisterForm.get('last_name')?.errors?.['pattern']">Name starts with capital letter
                         or should have
                         characters after space </mat-error>
-                    <mat-error *ngIf="RegisterForm.get('lastName')?.errors?.['minlength']">Name is of minimum 3
+                    <mat-error *ngIf="RegisterForm.get('last_name')?.errors?.['minlength']">Name is of minimum 3
                         characters</mat-error>
                 </mat-form-field>
             </div>
@@ -62,11 +62,11 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Confirm</mat-label>
-                    <input matInput type="password" formControlName="confirm" [type]='hide?"text":"password"'
+                    <input matInput type="password" formControlName="confirm_password" [type]='hide?"text":"password"'
                         pattern="{{RegisterForm.value.password}}">
-                    <mat-error *ngIf="RegisterForm.get('confirm')?.errors?.['required']">Confirm Password is required
+                    <mat-error *ngIf="RegisterForm.get('confirm_password')?.errors?.['required']">Confirm Password is required
                     </mat-error>
-                    <mat-error *ngIf="RegisterForm.get('confirm')?.errors?.['pattern']">Password doesn't match</mat-error>
+                    <mat-error *ngIf="RegisterForm.get('confirm_password')?.errors?.['pattern']">Password doesn't match</mat-error>
                 </mat-form-field>
             </div>
 
@@ -79,7 +79,7 @@
             </div>
 
             <div class="but-div">
-                <button mat-flat-button class="next">Next</button>
+                <button mat-flat-button class="next" (click)=" Register()">Next</button>
                 <a routerLink="/login"><button mat-button class="Signin">Sign in instead</button></a>
             </div>
         </form>

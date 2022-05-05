@@ -19,6 +19,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +44,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSidenavModule,
     MatFormFieldModule,
     MatIconModule,
+    HttpClientModule,
+    MatSnackBarModule,
 
   ],
 
