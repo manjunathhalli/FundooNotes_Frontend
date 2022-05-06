@@ -1,0 +1,62 @@
+<div class="big-div">
+    <mat-toolbar class="toolBar">
+        <div class="logo-div">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+                (click)="expand=!expand">
+                <mat-icon class="icon">menu</mat-icon>
+            </button>
+            <img src="../assets/dashboard/keep_2020q4_48dp.png" />
+            <span>&nbsp;Fundoo</span>
+        </div>
+        <div class="search">
+            <mat-form-field appearance="outline">
+                <mat-icon matPrefix>search</mat-icon>
+                <input matInput placeholder="Search" (change)="searchInp = changeSearch($event)" [value]="searchInp" />
+                <i class="material-icons icon" matSuffix *ngIf="searchInp.length>0" (click)='searchInp = ""'>clear</i>
+            </mat-form-field>
+        </div>
+        <div class="icons">
+            <i class="material-icons icon" *ngIf="!isGrid" (click)="isGrid=true">view_list</i>
+            <i class="material-icons icon" *ngIf="isGrid" (click)="isGrid=false">grid_view</i>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <i class="material-icons person">person</i>
+            </button>
+            <mat-menu #menu="matMenu">
+                <i class="material-icons person menuIcon">person</i>
+                <div class="user">
+                    <p class="name">{{Name}}</p>
+                    <p class="email">{{Email}}</p>
+                </div>
+                <mat-divider></mat-divider>
+                <button class="logout" (click)="Logout()">Logout from you account</button>
+            </mat-menu>
+        </div>
+    </mat-toolbar>
+    <div class="Main-Div">
+        <div class="SideNav" [class]='!expand?"expand":""'>
+            <div class="options" (click)="isOption=1" [class]='isOption == 1?"active":""'>
+                <i class="material-icons">lightbulb_outline</i>
+                <p class="iconName">Notes</p>
+            </div>
+            <div class="options" (click)="isOption=2" [class]='isOption == 2?"active":""'>
+                <i class="material-icons">notifications_none</i>
+                <p class="iconName">Reminder</p>
+            </div>
+            <div class="options" (click)="isOption=3" [class]='isOption == 3?"active":""'>
+                <i class="material-icons">edit</i>
+                <p class="iconName">Edit Label</p>
+            </div>
+            <div class="options" (click)="isOption=4" [class]='isOption == 4?"active":""'>
+                <i class="material-icons">archive</i>
+                <p class="iconName">Archive</p>
+            </div>
+            <div class="options" (click)="isOption=5" [class]='isOption == 5?"active":""'>
+                <i class="material-icons">delete_outline</i>
+                <p class="iconName">Delete</p>
+            </div>
+        </div>
+        <div class="NoteContent" [class]='!expand?"expand":""'>
+            <p>Main Container</p>
+        </div>
+    </div>
+</div>

@@ -1,20 +1,16 @@
-import { Injectable } from '@angular/core';
-import { HttpService } from '../httpService/http.service';
-import { environment } from 'src/environments/environment';
-@Injectable({
-  providedIn: 'root'
-})
-export class UserService {
+import { TestBed } from '@angular/core/testing';
 
-  constructor(private httpService : HttpService) { }
+import { UserService } from './user.service';
 
-  Register(data:any){
-      const params = {
-        FirstName: data.firstName,
-        LastName: data.lastName,
-        EmailId : data.email,
-        Password: data.password
-      }
-      return this.httpService.post(`${environment.baseUrl}/api/register`,params);
-  }
-}
+describe('UserService', () => {
+  let service: UserService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(UserService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

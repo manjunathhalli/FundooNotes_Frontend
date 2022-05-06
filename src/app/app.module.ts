@@ -21,6 +21,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -29,7 +33,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     RegistrationComponent,
     LoginComponent,
     ForgotComponent,
-    ResetComponent
+    ResetComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatIconModule,
     HttpClientModule,
     MatSnackBarModule,
-
+    MatToolbarModule,
+    MatMenuModule,
+    MatDividerModule
+    
   ],
 
   providers: [],
