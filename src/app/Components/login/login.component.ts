@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl} from '@angular/forms';
 import { UserService } from 'src/app/Services/userService/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -17,18 +17,18 @@ export class LoginComponent implements OnInit {
   LoginForm!: FormGroup;
   hide = true;
 
-  constructor(
+  constructor(private formBuilder: FormBuilder,
     private userService: UserService,
     private snackBar: MatSnackBar,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.checkLocalStorage();
-    this.LoginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^.,:;!@#$%^&*_+=|(){}\/\\[?-]*[.,:;!@#$%^&*_+=|(){}\/\\[?-][^.,:;!@#$%^&*_+=|(){}\/\\[?-]*$).{8,}$')])
-    })
+    this.LoginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+   
   }
 
   Login() {

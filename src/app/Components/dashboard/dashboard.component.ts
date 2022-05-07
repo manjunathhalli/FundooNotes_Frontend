@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { NotesService } from 'src/app/Services/notes/notes.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
 
@@ -15,7 +18,7 @@ export class DashboardComponent implements OnInit {
   searchInp = "";
   expand =true;
 
-  constructor(private route: Router) { }
+  constructor(private noteservice: NotesService,private route: Router) { }
 
   ngOnInit(): void {
     this.getFromLocalStorage()

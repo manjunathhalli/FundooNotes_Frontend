@@ -25,6 +25,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import { NoteComponent } from './Components/note/note.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {MatDividerModule} from '@angular/material/divider';
     LoginComponent,
     ForgotComponent,
     ResetComponent,
-    DashboardComponent
+    DashboardComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,
