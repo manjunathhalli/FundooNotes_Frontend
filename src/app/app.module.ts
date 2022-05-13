@@ -33,7 +33,7 @@ import { UpdateComponent } from './Components/update/update.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ArchiveComponent } from './Components/archive/archive.component';
-import { DeleteComponent } from './Components/delete/delete.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { DeleteComponent } from './Components/delete/delete.component';
     IconsComponent,
     UpdateComponent,
     ArchiveComponent,
-    DeleteComponent
+    FilterPipe,
+  
   ],
   imports: [
     BrowserModule,

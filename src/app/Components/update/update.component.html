@@ -1,17 +1,18 @@
-<div class="text-Title">
-    <input matInput [(ngModel)]="title">
-</div>
-<div class="text-body">
-    <input matInput [(ngModel)]="description">
-</div>
-<div fxLayout="row" fxLayoutAlign="space-between end">
-    <div>
-        <app-icons [noteObject]="data" > </app-icons>
+<div [style.background]="data.colour" style="padding: 10px;">
+    <div class="text-Title">
+        <input matInput [(ngModel)]="title">
     </div>
-    <div>
-        <button mat-icon-button (click)="onClose()" style="opacity: 0.9;">
-            Close
-        </button>
+    <div class="text-body">
+        <input matInput [(ngModel)]="description">
     </div>
-
+    <div fxLayout="row" fxLayoutAlign="space-between end">
+        <div>
+            <app-icons [noteObject]="data"> </app-icons>
+        </div>
+        <div>
+            <button mat-icon-button (click)="onClose()" style="opacity: 0.9;">
+                Close
+            </button>
+        </div>
+    </div>
 </div>

@@ -10,7 +10,6 @@ import { DisplaynotesComponent } from './Components/displaynotes/displaynotes.co
 import { GetallComponent } from './Components/getall/getall.component';
 import { AuthGuard } from './shared/auth.guard';
 import { ArchiveComponent } from './Components/archive/archive.component';
-import { DeleteComponent } from './Components/delete/delete.component';
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
@@ -24,7 +23,6 @@ const routes: Routes = [
       { path: '', redirectTo: '/dashboard/notes', pathMatch: 'full' },
       { path: 'notes', component: GetallComponent },
       { path: 'archive', component: ArchiveComponent},
-      {path: 'delete', component: DeleteComponent}
     ]
   },
 ];

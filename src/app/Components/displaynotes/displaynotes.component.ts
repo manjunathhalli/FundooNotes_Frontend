@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UpdateComponent } from '../update/update.component';
 import { NotesService } from 'src/app/Services/notes/notes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataService } from 'src/app/Services/dataService/data.service';
 
 @Component({
   selector: 'app-displaynotes',
@@ -11,15 +12,20 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class DisplaynotesComponent implements OnInit {
   sentmsg: any;
-  pin: boolean = true;
+
+  searchNote = "";
   @Input() childMessage: any;
 
 
   @Output() noteUpdated = new EventEmitter<any>()
   @Output() displaytogetallnotes = new EventEmitter<string>();
-  constructor(private note: NotesService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
+  constructor(private note: NotesService, public dialog: MatDialog, private _snackBar: MatSnackBar, private data: DataService) { }
 
   ngOnInit(): void {
+    this.data.incomingData.subscribe((res) => {
+      console.log("Searching Process", res)
+      this.searchNote = res;
+    })
 
   }
   openDialog(note: any): void {

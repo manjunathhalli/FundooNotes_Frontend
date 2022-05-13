@@ -10,7 +10,7 @@
         </div>
 
         <mat-form-field class="search" appearance="outline" fxHide fxShow.gt-xs>
-            <input matInput class="search" type="search" placeholder="Search...">
+            <input matInput class="search" type="search" placeholder="Search..." (keyup)="search($event)">
             <span mat-icon-button matPrefix><img src="../assets/dashboard/Search-icon.svg"></span>
             <span mat-icon-button matSuffix type="button" style="visibility: hidden;"><img
                     src="../assets/dashboard/Cancel-Search.svg"></span>
