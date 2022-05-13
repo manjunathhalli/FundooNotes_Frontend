@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserService } from 'src/app/Services/userService/user.service';
+import { Component,EventEmitter, Output,  OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotesService } from 'src/app/Services/notes/notes.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'Create-Note',
@@ -11,39 +10,48 @@ import { NotesService } from 'src/app/Services/notes/notes.service';
 })
 export class NoteComponent implements OnInit {
 
-  dispNote = false;
-  description :string= ''
-  title:string='';
-  NotesForm!:FormGroup;
-  constructor(
-    private userservice: UserService,
-    private noteservice: NotesService,
-    private snackBar :MatSnackBar) {
-    }
+  @Output() createToGetAllNotes = new EventEmitter<any>()
+  takenote!: NgForm;
+
+  public takeNote: boolean = false;
+
+  title: string = "";
+  description: string = "";
+
+  constructor(private notesService: NotesService, private _snackBar: MatSnackBar) { }
+
   ngOnInit(): void {
-    this.NotesForm= new FormGroup({
-      title: new FormControl(''),
-      description: new FormControl('')
-    });
+
   }
-  createNote(){
-    if(this.NotesForm.value.title != '' || this.NotesForm.value.Desc!= ''){
-      this.noteservice.CreateNote(this.NotesForm.value).
-      subscribe((result:any)=>{
-        console.log(result);
-        if(result.status == true){
-            this.snackBar.open(result.message,'',{duration:3000});
-        }
-      })
+
+  clickTakeNote() {
+    this.takeNote = true
+  }
+
+  createNote() {
+    this.takeNote = false
+
+    if ((this.title != null && this.title != "") || (this.description != null && this.description != "")) {
+      let reqData = {
+        title: this.title,
+        description: this.description,
+    
+      }
+
+      this.notesService.createNote(reqData).subscribe((response: any) => {
+        console.log("Note Created successfully", response);
+        this.createToGetAllNotes.emit(response);
+       // this.createNoteEvent.emit(response);
+        this.title = "",
+        this.description = "";
+    
+
+
+        this._snackBar.open('Note Created successfully', '', {
+          duration: 3000,
+          verticalPosition: 'bottom'
+        })
+      });
     }
-  }
-  autogrow(){
-    var textArea = document.getElementById("notes")!      
-    textArea.style.overflow = 'hidden';
-    textArea.style.height = 'auto';
-    textArea.style.height = textArea.scrollHeight + 'px';
-  }
-  checkMenu(event:any){
-      return event.target.value;
   }
 }

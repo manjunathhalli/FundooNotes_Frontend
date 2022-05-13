@@ -1,0 +1,29 @@
+.display {
+    padding-left: 30px;
+}
+
+.card {
+    width: 260px;
+    border: 1px solid gainsboro;
+    min-height: 100px;
+    overflow: hidden;
+    border-radius: 15px;
+    padding-left: 1%;
+
+}
+
+.icons {
+    height: 42%;
+    width: 100%;
+    margin-top: 23%;
+    margin-left: -1%;
+    // visibility:hidden
+}
+
+button:hover {
+    background-color: rgb(247, 233, 217);
+}
+
+.pin:hover {
+    background-color: rgb(247, 233, 217);
+}

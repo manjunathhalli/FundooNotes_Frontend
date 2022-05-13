@@ -1,0 +1,6 @@
+<div class="notelist" fxLayout="column" fxLayoutAlign="center center">
+    <Create-Note (createToGetAllNotes)="receiveEvent($event)"></Create-Note>
+
+    <app-displaynotes [childMessage]="notelist" (noteUpdated)="updatedData($event)" (displaytogetallnotes)="receiveMessagefromdisplaycard($event)"></app-displaynotes>
+
+</div>

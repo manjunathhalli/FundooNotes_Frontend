@@ -1,0 +1,11 @@
+.displaynote-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.dispaynote-container-gt-md {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

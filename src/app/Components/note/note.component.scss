@@ -1,117 +1,31 @@
-.create-note {
-    width: 50%;
-    padding-left: 200px;
+.take-note{
+   margin: 20px 0px 20px 0px;
+   display: flex;
+   width: 580px;
+   flex-direction: column;
+   align-content: center;
+   border-radius: 10px;
+   box-shadow: 1px 1px 4px gray;
+   border: 1px solid lightgray;
 }
 
-.mat-card {
-    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px 1px rgba(0, 0, 0, 0.19);
-    max-height: 500px;
-    overflow-y: auto;
-    position: relative;
-
+button:hover{
+   background-color: rgb(247, 233, 217) ;
 }
 
-.title {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 17px;
-    letter-spacing: 1px;
-    border: none;
-    width: 40vw;
-
-    &:focus-visible {
-        outline: none !important;
-    }
+::placeholder{
+   font-size: 16px;
+}
+.description{
+   font-size: 16px;
 }
 
-.t-div {
-    display: flex;
-    // justify-content: center;
-    margin-bottom: 10px;
-
+.description{
+   font-size: 16px;
 }
 
-.t-icons {
-    padding-right: 10px;
-}
-
-.n-div {
-    width: 100%;
-}
-
-.notes {
-    font-family: 'Roboto', sans-serif;
-    font-size: 17px;
-    flex: 1;
-    overflow: hidden;
-    box-sizing: border-box;
-    resize: none;
-    border: none;
-    width: 100%;
-
-    &:focus-visible {
-        outline: none !important;
-    }
-
-}
-
-.t-main {
-    justify-content: space-between;
-}
-
-.i-main {
-    display: flex;
-    justify-content: space-between;
-    border: .5px solid #ddd;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2), 1px 1px 1px 1px rgba(0, 0, 0, 0.19);
-    padding: 8px;
-
-    .i-div {
-        display: flex;
-        justify-content: space-between;
-
-        i {
-            padding: 5px 12px;
-            cursor: pointer;
-            color: rgba(0, 0, 0, 0.75);
-
-        }
-    }
-}
-
-.n-mat {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-
-::ng-deep .mat-menu-panel {
-    padding: 0px !important;
-}
-
-.i-but {
-    background: none;
-    border: none;
-
-    i {
-        color: rgba(0, 0, 0, 0.5) !important;
-    }
-}
-
-.mat-card::-webkit-scrollbar {
-    width: 10px;
-}
-
-
-.mat-card::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.mat-card::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-.mat-card::-webkit-scrollbar-thumb:hover {
-    background: #555;
+@media (max-width: 800px) {
+  .take-note{
+      width: 330px ;
+  }
 }

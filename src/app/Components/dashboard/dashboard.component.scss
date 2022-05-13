@@ -1,198 +1,74 @@
-.big-div {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
-
-.toolBar {
-    display: flex;
-    justify-content: space-between;
+.mat-toolbar {
     background-color: white;
-    border-bottom: .5px solid #a8aaad79;
+    height: 70px;
+    border-bottom: 0.5px solid lightgray;
+    box-shadow: 1px 1px 5px gray;
 
 }
 
-.logo-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.mat-form-field ::ng-deep .mat-form-field-wrapper {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    background-color: rgb(235, 233, 233);
+}
+
+.mat-form-field-flex ::ng-deep .mat-form-field-infix {
+    padding: 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+.mat-form-field-infix ::ng-deep .mat-form-field-label-wrapper {
+    padding: 0px 0px;
+}
+
+.fundoo p {
+    margin-bottom: 0px;
+}
+
+.logo {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .search {
-    margin-top: 20px;
-    width: 60%;
-}
-
-::ng-deep .mat-form-field-infix {
-    padding: 10px !important;
-    border-top: 0px !important;
-}
-
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
-    margin-top: 0px !important;
-}
-
-mat-form-field {
-    width: 80%;
-
-}
-
-::ng-deep .mat-form-field-wrapper {
-    margin-bottom: 1.34375em !important;
-    padding-bottom: 0px !important;
-
-    &:focus-within {
-        box-shadow: 0px 2px 3px 0px #a8aaad79;
-        border-radius: 10px;
-    }
-}
-
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix,
-.mat-form-field-appearance-outline .mat-form-field-suffix {
-    top: .45em !important;
-}
-
-::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-    color: white !important;
-}
-
-input {
-    margin-left: 15px;
-
-}
-
-.icons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 5%;
-}
-
-.person {
-    border: .5px solid #a8aaad79;
-    border-radius: 50%;
-    padding: 5px;
-
-}
-
-.menuIcon {
-    font-size: 80px;
-    align-self: center;
-}
-
-::ng-deep .mat-menu-panel {
-    padding: 25px 45px;
-
-}
-
-::ng-deep .mat-menu-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-p {
-    text-align: center;
-}
-
-.logout {
-    background-color: white;
-    padding: 10px 50px;
-    border-radius: 5px;
-    border-color: #a8aaad79;
-    outline: none;
-}
-
-.user {
-    align-content: center;
-    margin-top: 5px;
-}
-
-.name {
-    font-size: 18px;
-}
-
-.email {
-    margin-top: -10px;
-    color: gray;
+    flex: 1 1 auto;
+    margin-left: 8%;
+    margin-right: 8%;
     font-size: 16px;
 }
 
-mat-divider {
-    width: 136%;
-    margin-bottom: 15px;
+// mat-list-item{
+//     color:#5f6368;
+// }
+
+mat-sidenav {
+    border: none;
+    box-shadow: 1px 1px 5px gray;
 }
 
-.icon {
-    cursor: pointer;
-    color: gray;
-    padding: 5px 5px;
+mat-sidenav .mat-nav-list a img {
+    margin: 0px 25px 0px 10px;
+}
 
-    &:hover {
-        color: black;
-        border: .5px solid #a8aaad79;
-        border-radius: 50%;
-        background-color: #a8aaad79;
+.mat-nav-list a:hover {
+    background-color: rgb(247, 233, 217);
+    border-radius: 0px 25px 25px 0px;
+}
+
+button:hover {
+    background-color: rgb(247, 233, 217);
+}
+
+@media (max-width: 800px) {
+    
+    .search {
+        margin-left: 20px;
+        margin-right: 10px;
     }
 }
 
-.Main-Div {
-    display: flex;
-    position: relative;
-    height: calc(100% - 64px);
-
-    .SideNav {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 250px;
-        padding-top: 10px;
-        position: relative;
-        box-sizing: border-box;
-
-        .options {
-            display: flex;
-            align-items: center;
-            padding: 5px 50px 5px 15px;
-            border-top-right-radius: 30px;
-            border-bottom-right-radius: 30px;
-            width: 100%;
-            box-sizing: border-box;
-
-            i {
-                margin: 10px;
-            }
-
-            p {
-                margin-bottom: 0px !important;
-                margin-left: 10px;
-                font-size: 17px;
-
-            }
-        }
-
-        .options.active {
-            background-color: #feefc3;
-        }
-    }
-
-    .NoteContent {
-        width: calc(100% - 250px);
-    }
-
-    .SideNav.expand {
-        width: 80px !important;
-
-        .options {
-            p {
-                display: none !important;
-            }
-        }
-    }
-
-    .NoteContent.expand {
-        width: calc(100% - 80px);
+@media (max-width: 675px) {
+    .search {
+        width: 150px;
     }
 }

@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormControl} from '@angular/forms';
 import { UserService } from 'src/app/Services/userService/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,53 +10,53 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  LoginForm!: FormGroup;
-  hide = true;
+  loginForm!: FormGroup;
+  submitted = false;
+  hide: boolean = true;
 
-  constructor(private formBuilder: FormBuilder,
-    private userService: UserService,
-    private snackBar: MatSnackBar,
-    private router: Router
-  ) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private _snackBar: MatSnackBar, private router: Router) { }
 
-  ngOnInit(): void {
-    this.LoginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-zA-Z0-9]{3,}([._+-][a-zA-Z0-9]{1,})?@[a-zA-Z0-9]{1,10}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$")]],
+      password: ['', [Validators.required, Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@?^*!~]).{8,}$")]]
     });
-   
+  }
+  get f() { return this.loginForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.loginForm.valid) {
+      let reqData = {
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password
+      }
+      this.userService.Login(reqData).subscribe((response: any) => {
+        console.log("Login successful", response);
+        localStorage.setItem("FundooUser", response.access_token);
+        this.router.navigateByUrl('/dashboard')
+
+        this._snackBar.open('Login in successfully', '', {
+          duration: 3000,
+          verticalPosition: 'bottom',     
+        })
+      });
+    }
+    else {
+        this._snackBar.open('Invalid Credentails', '', {
+          duration: 3000,
+          verticalPosition: 'bottom'
+        })
+      }
+
   }
 
-  Login() {
-    if (!this.LoginForm.invalid) {
-      this.userService.Login(this.LoginForm.value).subscribe(
-        (result: any) => {
-          console.log(result);
-          //localStorage.setItem("token",result.access_token)
-          this.snackBar.open(result.message, '', { duration: 2500 });
-          (result.status == true); {
-            this.LocalStorage(result.access_token, 'FundooUser');
-            this.router.navigateByUrl('/dashboard');
-          }
-        },
-        (error: HttpErrorResponse) => {
-          this.snackBar.open('UnAuthorized','', { duration: 30000 });
-        }
-      );
-    }
+  onReset() {
+    this.submitted = false;
+    this.loginForm.reset();
   }
-  LocalStorage(data: any, name: any) {
-    var user = localStorage.getItem(name);
-    if (user != null) {
-      localStorage.removeItem(name);
-    }
-    user = data;
-    localStorage.setItem(name, JSON.stringify(user));
-  }
-  checkLocalStorage() {
-    var user = localStorage.getItem('FundooUser');
-    if (user != null) {
-      this.router.navigateByUrl('/dashboard');
-    }
+  ShowPassword() {
+    this.hide = !this.hide;
   }
 }

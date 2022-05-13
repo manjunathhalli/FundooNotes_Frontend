@@ -1,0 +1,16 @@
+.icons button{
+    margin-right: 5px;
+}
+button:hover{
+    background-color: rgb(247, 233, 217) ;
+} 
+
+.bg-color{
+    padding: 2px;
+}
+
+input[type=file]{
+    // display: none;
+    user-select: none;
+    opacity: 0;
+} 

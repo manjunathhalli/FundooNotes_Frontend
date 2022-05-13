@@ -1,34 +1,92 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { HttpService } from '../httpService/http.service';
 import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
-  user = localStorage.getItem('FundooUser')
   token: any;
+
   constructor(private httpService: HttpService) {
-    this.token = localStorage.getItem('FundooUser')
+    this.token = localStorage.getItem('FundooUser');
   }
 
-  CreateNote(data: any) {
-    var user = JSON.parse(localStorage.getItem('FundooUser')!);
-    let params = {
-      title: data.title,
-      description: data.description,
-    };
-
-    let headers = {
+  createNote(reqData: any) {
+    let header = {
       headers: new HttpHeaders({
-        title: data.title,
-        description: data.description,
-        'Content-Type': 'multipart/form-data',
-        'Authorization': this.token
-
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
       })
     }
-    return this.httpService.post(`${environment.baseUrl}/auth/createNotes`, params);
+    return this.httpService.postService('/auth/createNotes', reqData, true, header);
+  }
+
+  getAllNotes() {
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.getService('/auth/displayNotes', true, header)
+
+  }
+
+  updateNote(data: any, id: any) {
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.postService('/auth/updateNoteById', data, true, header);
+  }
+
+  archiveNotes(id: any) {
+    //console.log(id)
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': `Bearer ` + this.token
+      })
+
+    }
+    return this.httpService.putService("/auth/archiveNoteById", { id }, true, header)
+  }
+
+  pinNote(id: any) {
+    // console.log(id)
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': `Bearer ` + this.token
+      })
+    }
+    return this.httpService.putService("/auth/pinNoteById", { id }, true, header)
+  }
+
+  deleteNotes(id: any) {
+    //console.log(id)
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': `Bearer ` + this.token
+      }),
+      body: { id: id }
+    }
+    return this.httpService.deleteService("/auth/deleteNoteById", true, header)
+  }
+
+  ColorNote(id: any, data: any) {
+    // console.log(id,data.colour)
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': `Bearer ` + this.token
+      })
+    }
+    return this.httpService.putService("/auth/colourNoteById", { id, colour: data.colour }, true, header)
   }
 }
+
 

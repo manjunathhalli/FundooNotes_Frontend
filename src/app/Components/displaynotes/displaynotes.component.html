@@ -1,0 +1,18 @@
+<div fxLayout="row wrap" fxLayoutGap="20px grid"
+    style="padding-top:2%;padding-left:4%;width:100%;padding-left:13%;padding-right:4%;">
+    <div *ngFor="let note of childMessage">
+        <mat-card class="card" [style.background]="note.colour">
+            <mat-card-title fxLayout="row" fxLayoutAlign="space-between">
+                <div (click)="openDialog(note)">{{note.title}}</div>
+                <div><img class="pin" src="../assets/dashboard/pin.svg" (click)="pinUnPin(note);" *ngIf="!note.pin">
+                </div>
+            </mat-card-title>
+            <mat-card-subtitle (click)="openDialog(note)">
+                {{note.description}}
+            </mat-card-subtitle>
+            <div class="icons">
+                <app-icons [noteObject]="note" (iconstodisplay)="recievefromiconstodisplaycard($event)"></app-icons>
+            </div>
+        </mat-card>
+    </div>
+</div>

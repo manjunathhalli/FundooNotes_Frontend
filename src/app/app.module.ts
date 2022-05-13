@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './Components/registration/registration.component';
 import { LoginComponent } from './Components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,13 +20,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 import { NoteComponent } from './Components/note/note.component';
-
+import { GetallComponent } from './Components/getall/getall.component';
+import { DisplaynotesComponent } from './Components/displaynotes/displaynotes.component';
+import { IconsComponent } from './Components/icons/icons.component';
+import { UpdateComponent } from './Components/update/update.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ArchiveComponent } from './Components/archive/archive.component';
+import { DeleteComponent } from './Components/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +43,13 @@ import { NoteComponent } from './Components/note/note.component';
     ForgotComponent,
     ResetComponent,
     DashboardComponent,
-    NoteComponent
+    NoteComponent,
+    GetallComponent,
+    DisplaynotesComponent,
+    IconsComponent,
+    UpdateComponent,
+    ArchiveComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +68,11 @@ import { NoteComponent } from './Components/note/note.component';
     MatSnackBarModule,
     MatToolbarModule,
     MatMenuModule,
-    MatDividerModule
-    
+    MatDividerModule,
+    MatListModule,
+    FlexLayoutModule,
+    MatDialogModule
+
   ],
 
   providers: [],

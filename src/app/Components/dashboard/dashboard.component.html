@@ -1,63 +1,64 @@
-<div class="big-div">
-    <mat-toolbar class="toolBar">
-        <div class="logo-div">
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
-                (click)="expand=!expand">
-                <mat-icon class="icon">menu</mat-icon>
+<mat-toolbar class="mat-toolbar">
+    <mat-toolbar-row class="toolbar-row" fxLayout="row" fxLayoutAlign="space-between center">
+
+        <div class="fundoo" fxLayout="row" fxLayoutAlign="center center" style="font-weight:500">
+            <button mat-icon-button>
+                <mat-icon matTooltip="Main Menu" (click)="sidenav.toggle();">menu</mat-icon>
             </button>
             <img src="../assets/dashboard/keep_2020q4_48dp.png" />
             <span>&nbsp;Fundoo</span>
         </div>
-        <div class="search">
-            <mat-form-field appearance="outline">
-                <mat-icon matPrefix>search</mat-icon>
-                <input matInput placeholder="Search" (change)="searchInp = changeSearch($event)" [value]="searchInp" />
-                <i class="material-icons icon" matSuffix *ngIf="searchInp.length>0" (click)='searchInp = ""'>clear</i>
-            </mat-form-field>
-        </div>
-        <div class="icons">
-            <i class="material-icons icon" *ngIf="!isGrid" (click)="isGrid=true">view_list</i>
-            <i class="material-icons icon" *ngIf="isGrid" (click)="isGrid=false">grid_view</i>
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                <i class="material-icons person">person</i>
+
+        <mat-form-field class="search" appearance="outline" fxHide fxShow.gt-xs>
+            <input matInput class="search" type="search" placeholder="Search...">
+            <span mat-icon-button matPrefix><img src="../assets/dashboard/Search-icon.svg"></span>
+            <span mat-icon-button matSuffix type="button" style="visibility: hidden;"><img
+                    src="../assets/dashboard/Cancel-Search.svg"></span>
+        </mat-form-field>
+
+        <mat-nav-list class="mat-nav-list" fxLayout="row">
+            <button mat-icon-button><i class="material-icons">&#xe5d5;</i></button>
+            <button mat-icon-button> <img src="../assets/dashboard/List.png" width="24px" height="24px"></button>
+            <button mat-icon-button> <img src="../assets/dashboard/settings.svg" width="24px" height="24px"></button>
+            <span style="width: 24px;" fxHide.lt-md></span>
+            <button mat-icon-button> <img src="../assets/dashboard/circled-menu.png" width="24px" height="24px">
             </button>
-            <mat-menu #menu="matMenu">
-                <i class="material-icons person menuIcon">person</i>
-                <div class="user">
-                    <p class="name">{{Name}}</p>
-                    <p class="email">{{Email}}</p>
-                </div>
-                <mat-divider></mat-divider>
-                <button class="logout" (click)="Logout()">Logout from you account</button>
+            <button mat-icon-button> <img src="../assets/dashboard/Screenshot (292).png" width="33px" height="33px"
+                    [matMenuTriggerFor]="profile"> </button>
+            <mat-menu #profile="matMenu">
+                <button mat-menu-item (click)="signOut()">Sign out</button>
             </mat-menu>
-        </div>
-    </mat-toolbar>
-    <div class="Main-Div">
-        <div class="SideNav" [class]='!expand?"expand":""'>
-            <div class="options" (click)="isOption=1" [class]='isOption == 1?"active":""'>
-                <i class="material-icons">lightbulb_outline</i>
-                <p class="iconName">Notes</p>
-            </div>
-            <div class="options" (click)="isOption=2" [class]='isOption == 2?"active":""'>
-                <i class="material-icons">notifications_none</i>
-                <p class="iconName">Reminder</p>
-            </div>
-            <div class="options" (click)="isOption=3" [class]='isOption == 3?"active":""'>
-                <i class="material-icons">edit</i>
-                <p class="iconName">Edit Label</p>
-            </div>
-            <div class="options" (click)="isOption=4" [class]='isOption == 4?"active":""'>
-                <i class="material-icons">archive</i>
-                <p class="iconName">Archive</p>
-            </div>
-            <div class="options" (click)="isOption=5" [class]='isOption == 5?"active":""'>
-                <i class="material-icons">delete_outline</i>
-                <p class="iconName">Delete</p>
-            </div>
-        </div>
-        <div class="NoteContent" [class]='!expand?"expand":""'>
-            <!-- <p>main container</p> -->
+        </mat-nav-list>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened="false" mode="side">
+        <mat-nav-list class="mat-nav-list">
+            <a mat-list-item routerLink="notes">
+                <img src="../assets/dashboard/Notes.svg">
+                Notes
+            </a>
+            <a mat-list-item>
+                <img src="../assets/dashboard/Reminder.svg">
+                Reminders
+            </a>
+            <a mat-list-item>
+                <img src="../assets/dashboard/Label.svg">
+                Labels
+            </a>
+            <a mat-list-item>
+                <img src="../assets/dashboard/EditLabel.svg">
+                Edit labels
+            </a>
+            <a mat-list-item routerLink="archive">
+                <img src="../assets/dashboard/Archive.svg">
+                Archive
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 90vh;">
             <router-outlet></router-outlet>
         </div>
-    </div>
-</div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

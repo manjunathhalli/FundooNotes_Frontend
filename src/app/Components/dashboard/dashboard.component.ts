@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { NotesService } from 'src/app/Services/notes/notes.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,34 +9,20 @@ import { NotesService } from 'src/app/Services/notes/notes.service';
 })
 export class DashboardComponent implements OnInit {
 
-  Name = '';
-  Email = '';
-  isGrid = true;
-  isSearch = false;
-  isOption = 1;
-  searchInp = "";
-  expand =true;
+  public sidenavText: boolean = true;
 
-  constructor(private noteservice: NotesService,private route: Router) { }
+  constructor(private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.getFromLocalStorage()
   }
-  getFromLocalStorage() {
-    var user = JSON.parse(localStorage.getItem("FundooUser")!);
-    this.Name = user.userName;
-    this.Email = user.emailId;
-  }
-  Logout() {
-    var user = JSON.parse(localStorage.getItem("FundooUser")!);
-    if (user != null) {
-      //localStorage.removeItem("token")
-       localStorage.removeItem("FundooUser");
-      this.route.navigateByUrl('/login');
-    }
-  }
-  changeSearch(event: any) {
-    console.log(event.target.value)
-    return event.target.value;
+
+  signOut() {
+    localStorage.removeItem("FundooUser");
+    this.router.navigateByUrl('/login');
+
+    this._snackBar.open('Sign out successful', '', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+    })
   }
 }
