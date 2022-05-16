@@ -11,7 +11,8 @@ export class IconsComponent implements OnInit {
   @Input() noteObject: any
   @Output() iconstodisplay = new EventEmitter<string>();
 
-  colorarray = ['green', 'yellow','white', 'orange','pink','silver','teal',];
+  colorarray = ['green', 'yellow','white',
+                 'orange','pink','silver','teal',];
 
   constructor(private note: NotesService) { }
 

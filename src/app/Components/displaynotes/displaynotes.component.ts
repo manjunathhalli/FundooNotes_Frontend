@@ -23,7 +23,7 @@ export class DisplaynotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.data.incomingData.subscribe((res) => {
-      console.log("Searching Process", res)
+      console.log("Searching ", res)
       this.searchNote = res;
     })
 

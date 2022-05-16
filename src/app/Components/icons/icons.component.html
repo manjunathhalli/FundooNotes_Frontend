@@ -3,7 +3,7 @@
     <button mat-icon-button matTooltip="Collaborator"> <img src="../assets/dashboard/add_person.svg" width="20px" height="20px"></button>
     <button mat-icon-button matTooltip="Background color"> <img src="../assets/dashboard/color.svg" [matMenuTriggerFor]="aboveMenu" width="20px" height="20px"></button>
     <mat-menu #aboveMenu="matMenu" yPosition="below">
-        <div class="pop">
+          <div fxLayout="row reverse" style="padding-left: 8px;">
           <div *ngFor='let color of colorarray'>
             <button style="background-color: transparent;border: none;" (click)="setColor(color)">
               <mat-icon c [ngStyle]="{color:color}">circle</mat-icon>
@@ -14,6 +14,8 @@
       
     <button mat-icon-button matTooltip="Add image"> <img src="../assets/dashboard/image.svg" width="20px" height="20px"></button>
     <button mat-icon-button matTooltip="Archive" (click)="onArchive()" > <img src="../assets/dashboard/Archive.svg" width="20px" height="20px"></button>
-    <!-- <button mat-icon-button matTooltip="Unarchive"> <img src="../assets/dashboard/unArchive.svg" width="20px" height="20px"></button> -->
-    <button mat-icon-button matTooltip="delete"  (click)="onDelete()"> <img src="../assets/dashboard/Bin.svg" width="20px" height="20px"></button>
+    <button mat-icon-button matTooltip="More" [matMenuTriggerFor]="more"> <img src="../assets/dashboard/more.svg" width="20px" height="20px"> </button>
+    <mat-menu #more="matMenu">
+        <button mat-menu-item (click)="onDelete()" >Delete note</button>
+    </mat-menu>
 </div>
