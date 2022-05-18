@@ -14,3 +14,9 @@ input[type=file]{
     user-select: none;
     opacity: 0;
 } 
+
+@media (max-width:500px) {
+    .icons button{
+        margin-right: 0px;
+    }
+}

@@ -1,6 +1,6 @@
-.display {
-    padding-left: 50px;
-}
+// .display {
+//     padding-left: 50px;
+// }
 
 .card {
     width: 250px;
@@ -26,4 +26,20 @@ button:hover {
 
 .pin:hover {
     background-color: rgb(247, 233, 217);
+}
+@media (max-width: 726px) {
+    .note{
+        width: 350px;
+    }
+    .display-notes{
+        justify-content: center;
+    }
+}
+@media (max-width: 475px) {
+    .note{
+        width: 300px;
+    }
+    .display-notes{
+        justify-content: center;
+    }
 }

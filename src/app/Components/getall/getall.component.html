@@ -1,6 +1,16 @@
 <div class="notelist" fxLayout="column" fxLayoutAlign="center center">
-    <Create-Note (createToGetAllNotes)="receiveEvent($event)"></Create-Note>
-
-    <app-displaynotes [childMessage]="notelist" (noteUpdated)="updatedData($event)" (displaytogetallnotes)="receiveMessagefromdisplaycard($event)"></app-displaynotes>
-
+    <Create-Note (createToGetAllNotes)="receiveEvent($event)"  (noteUpdated)="updatedData($event)"></Create-Note>
+    <div>
+        <span *ngIf="notelist.length>0" style="margin-left:15px"></span>
+        <div class="display" fxLayout="row">
+            <app-displaynotes [childMessage]="notelist" (noteUpdated)="updatedData($event)"
+                (displaytogetallnotes)="receiveMessagefromdisplaycard($event)"></app-displaynotes>
+        </div>
+        <br>
+        <span *ngIf="noteListUnpinned.length>0" style="margin-left:15px"></span>
+        <div class="display" fxLayout="row">
+            <app-displaynotes [childMessage]="noteListUnpinned" (noteUpdated)="updatedData($event)"
+                (displaytogetallnotes)="receiveMessagefromdisplaycard($event)"></app-displaynotes>
+        </div>
+    </div>
 </div>

@@ -30,7 +30,7 @@ export class DisplaynotesComponent implements OnInit {
   }
   openDialog(note: any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
-      width: '550px',
+      width: '450px',
       data: note
     });
 
@@ -45,6 +45,7 @@ export class DisplaynotesComponent implements OnInit {
     // console.log(note.pin)
     this.note.pinNote(note.id).subscribe((response: any) => {
       console.log("Note Pinned");
+      this.displaytogetallnotes.emit(response);
       this._snackBar.open('Note Pinned', '', {
         duration: 3000,
         verticalPosition: 'bottom',
@@ -52,8 +53,8 @@ export class DisplaynotesComponent implements OnInit {
     })
   }
 
-  recievefromiconstodisplaycard($event: any) {
-    console.log("recievedindisplay");
+  iconstodisplaycard($event: any) {
+    console.log("recieved and display");
     this.sentmsg = $event
     this.displaytogetallnotes.emit(this.sentmsg)
 

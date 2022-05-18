@@ -13,7 +13,9 @@
       </mat-menu>
       
     <button mat-icon-button matTooltip="Add image"> <img src="../assets/dashboard/image.svg" width="20px" height="20px"></button>
-    <button mat-icon-button matTooltip="Archive" (click)="onArchive()" > <img src="../assets/dashboard/Archive.svg" width="20px" height="20px"></button>
+    <button mat-icon-button matTooltip="Archive" (click)="onArchive()" > <img src="../assets/dashboard/Archive.svg" width="20px" height="20px" ></button>
+    <!-- ><img src="../assets/dashboard/unArchive.svg" width="20px" height="20px"></button> -->
+
     <button mat-icon-button matTooltip="More" [matMenuTriggerFor]="more"> <img src="../assets/dashboard/more.svg" width="20px" height="20px"> </button>
     <mat-menu #more="matMenu">
         <button mat-menu-item (click)="onDelete()" >Delete note</button>

@@ -31,4 +31,8 @@ export class DashboardComponent implements OnInit {
     console.log(event.target.value)
     this.data.outgoingData(event.target.value)
   }
+
+  reload(){
+    window.location.reload()
+  }
 }

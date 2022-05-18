@@ -17,7 +17,8 @@
         </mat-form-field>
 
         <mat-nav-list class="mat-nav-list" fxLayout="row">
-            <button mat-icon-button><i class="material-icons">&#xe5d5;</i></button>
+            <button mat-icon-button fxHide fxShow.gt-xs matTooltip="Reload" (click)="reload()"><i class="material-icons">&#xe5d5;</i></button>
+            
             <button mat-icon-button> <img src="../assets/dashboard/List.png" width="24px" height="24px"></button>
             <button mat-icon-button> <img src="../assets/dashboard/settings.svg" width="24px" height="24px"></button>
             <span style="width: 24px;" fxHide.lt-md></span>

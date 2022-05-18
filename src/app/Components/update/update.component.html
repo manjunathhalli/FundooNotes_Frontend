@@ -1,9 +1,10 @@
-<div [style.background]="data.colour" style="padding: 2px;">
+<div [style.background]="data.colour" style="padding: 20px;">
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
     <div class="text-Title">
-        <input matInput [(ngModel)]="title" >
+        <input matInput [(ngModel)]="title" style="width: 400px;border: none;" >
     </div>
     <div class="text-body">
-        <input matInput [(ngModel)]="description">
+        <input matInput [(ngModel)]="description" style="width: 400px;border: none;">
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between end">
         <div>
@@ -14,5 +15,6 @@
                 Close
             </button>
         </div>
+    </div>
     </div>
 </div>

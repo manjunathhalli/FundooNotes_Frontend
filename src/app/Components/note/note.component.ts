@@ -1,4 +1,4 @@
-import { Component,EventEmitter, Output,  OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotesService } from 'src/app/Services/notes/notes.service';
 import { NgForm } from '@angular/forms';
@@ -15,12 +15,18 @@ export class NoteComponent implements OnInit {
 
   public takeNote: boolean = false;
 
+  data :any;
+
   title: string = "";
   description: string = "";
 
   constructor(private notesService: NotesService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+   this.data ={
+    title: this.title,
+    description: this.description,
+   }
 
   }
 
@@ -35,20 +41,18 @@ export class NoteComponent implements OnInit {
       let reqData = {
         title: this.title,
         description: this.description,
-    
+
       }
 
       this.notesService.createNote(reqData).subscribe((response: any) => {
         console.log("Note Created successfully", response);
-        this.createToGetAllNotes.emit(response);
-       // this.createNoteEvent.emit(response);
+        this.createToGetAllNotes.emit(response.data);
         this.title = "",
         this.description = "";
-    
-
+       // this.createToGetAllNotes.emit(response);
 
         this._snackBar.open('Note Created successfully', '', {
-          duration: 3000,
+          duration: 2500,
           verticalPosition: 'bottom'
         })
       });

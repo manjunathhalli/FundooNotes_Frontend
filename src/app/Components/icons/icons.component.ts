@@ -12,7 +12,7 @@ export class IconsComponent implements OnInit {
   @Output() iconstodisplay = new EventEmitter<string>();
 
   colorarray = ['green', 'yellow','white',
-                 'orange','pink','silver','teal',];
+  'orange','pink','silver','teal',];
 
   constructor(private note: NotesService) { }
 
